@@ -21,6 +21,26 @@ font pango:monospace 8
 
 exec_always feh --bg-scale /home/francougo/Pictures/wps/wallpaper.png
 bindsym $mod+Shift+x exec i3lock
+exec xrandr --output HDMI-A-0 --primary --mode 1920x1080 --pos 1366x0 --rotate normal --output     DisplayPort-0 --mode 1366x768 --pos 0x312 --rotate normal
+
+mode "exit: [l]ogout, [r]eboot, [p]ower off, [s]uspend" {
+
+  bindsym l exec i3-msg exit
+
+  bindsym r exec systemctl reboot
+
+  bindsym p exec systemctl shutdown
+
+  bindsym s exec systemctl suspend
+
+  bindsym Escape mode "default"
+
+  bindsym Return mode "default"
+
+}
+
+bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [p]ower off, [s]uspend"
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -109,20 +129,16 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: Firefox"
-set $ws2 "2: Monitor 2"
-set $ws3 "3: Konsole 1"
-set $ws4 "4: Konsole 2"
+set $ws2 "2: Thunar"
+set $ws3 "3: Konsole"
+set $ws4 "4: MS Teams"
 set $ws5 "5"
 set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10: Spotify"
+set $ws7 "7: PDFs"
+set $ws8 "8: Discord"
+set $ws9 "9: Spotify"
+set $ws10 "10"
 
-assign [class="Firefox"] $ws1
-assign [class="Thunar"] $ws2
-assign [class="konsole"] $ws3
-assign [class="Spotify"] $ws10
 # switch to workspace
 bindsym $mod+7 workspace number $ws1
 bindsym $mod+8 workspace number $ws2
@@ -135,24 +151,43 @@ bindsym $mod+i workspace number $ws8
 bindsym $mod+o workspace number $ws9
 bindsym $mod+p workspace number $ws10
 
+# bind workspaces to specific monitors
+set $monitor_hdmi "HDMI-A-0"
+set $monitor_vga "DisplayPort-0"
+
+workspace $ws1 output $monitor_hdmi
+workspace $ws2 output $monitor_vga
+workspace $ws7 output $monitor_hdmi
+workspace $ws9 output $monitor_vga
+
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+7 move container to workspace number $ws1
+bindsym $mod+Shift+8 move container to workspace number $ws2
+bindsym $mod+Shift+9 move container to workspace number $ws3
+bindsym $mod+Shift+0 move container to workspace number $ws4
+bindsym $mod+Shift+- move container to workspace number $ws5
+bindsym $mod+Shift+y move container to workspace number $ws6
+bindsym $mod+Shift+u move container to workspace number $ws7
+bindsym $mod+Shift+i move container to workspace number $ws8
+bindsym $mod+Shift+o move container to workspace number $ws9
+bindsym $mod+Shift+p move container to workspace number $ws10
+
+# assign aplications to specific workspaces
+assign [class="^Firefox"] $ws1
+assign [class="^Thunar"] $ws2
+assign [class="^konsole"] $ws3
+assign [class="^Microsoft Teams - Preview"] $ws4
+assign [class="^discord"] $ws8
+assign [class="okular"] $ws7
+# spotify does not set a class name on startup 
+for_window [class="^Spotify"] move to workspace $ws9
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -164,7 +199,7 @@ mode "resize" {
         # Pressing down will grow the window’s height.
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym k resize shrink height 9 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys

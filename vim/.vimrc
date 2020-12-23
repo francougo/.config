@@ -29,7 +29,7 @@ cnoremap kj <C-C>
 
 let mapleader = ","
 
-noremap <leader>y "+y
+vnoremap <leader>y "+y
 nnoremap <leader>p "+p
 "yanks and pastes to and from the clipboard register
 

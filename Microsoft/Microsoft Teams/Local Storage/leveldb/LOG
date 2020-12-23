@@ -1,0 +1,20 @@
+2020/12/23-11:47:13.132 4998 Reusing MANIFEST /home/francougo/.config/Microsoft/Microsoft Teams/Local Storage/leveldb/MANIFEST-000001
+2020/12/23-11:47:13.132 4998 Recovering log #18
+2020/12/23-11:47:13.154 4998 Level-0 table #21: started
+2020/12/23-11:47:13.197 4998 Level-0 table #21: 322652 bytes OK
+2020/12/23-11:47:13.223 4998 Delete type=0 #18
+2020/12/23-11:48:13.265 4af5 Level-0 table #24: started
+2020/12/23-11:48:13.302 4af5 Level-0 table #24: 48597 bytes OK
+2020/12/23-11:48:13.328 4af5 Delete type=0 #22
+2020/12/23-12:29:24.674 4af5 Level-0 table #26: started
+2020/12/23-12:29:24.726 4af5 Level-0 table #26: 65826 bytes OK
+2020/12/23-12:29:24.752 4af5 Delete type=0 #23
+2020/12/23-12:29:24.752 4af5 Compacting 4@0 + 1@1 files
+2020/12/23-12:29:24.801 4af5 Generated table #27@0: 70 keys, 400349 bytes
+2020/12/23-12:29:24.801 4af5 Compacted 4@0 + 1@1 files => 400349 bytes
+2020/12/23-12:29:24.827 4af5 compacted to: files[ 0 1 1 0 0 0 0 ]
+2020/12/23-12:29:24.827 4af5 Delete type=2 #17
+2020/12/23-12:29:24.827 4af5 Delete type=2 #19
+2020/12/23-12:29:24.827 4af5 Delete type=2 #26
+2020/12/23-12:29:24.827 4af5 Delete type=2 #21
+2020/12/23-12:29:24.827 4af5 Delete type=2 #24

@@ -30,6 +30,7 @@ let mapleader = ","
 
 vnoremap <leader>y "+y
 nnoremap <leader>p "+p
+nnoremap <leader>o "*p
 "yanks and pastes to and from the clipboard register
 
 nnoremap <leader>ev :vsp ~/.vimrc<cr>
@@ -39,3 +40,6 @@ nnoremap <leader>sv :so ~/.vimrc<cr>
 "sources vimrc so any saved changes have effect on the current buffer
 
 noremap <leader>t :sh<cr>
+
+noremap <leader>w <c-w><c-w>
+

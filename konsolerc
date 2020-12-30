@@ -2,10 +2,11 @@
 DefaultProfile=franco_standar.profile
 
 [MainWindow]
-HDMI-A-0 DisplayPort-0 Height 1080=1036
-HDMI-A-0 DisplayPort-0 Width 1920=1916
-HDMI-A-0 DisplayPort-0 XPosition=2
-HDMI-A-0 DisplayPort-0 YPosition=20
-RestorePositionForNextInstance=false
-State=AAAA/wAAAAD9AAAAAAAAB3wAAAP5AAAABAAAAAQAAAAIAAAACPwAAAAA
+HDMI-A-0 DisplayPort-0 Height 1080=999
+HDMI-A-0 DisplayPort-0 Height 768=724
+HDMI-A-0 DisplayPort-0 Width 1366=679
+HDMI-A-0 DisplayPort-0 Width 1920=944
+HDMI-A-0 DisplayPort-0 XPosition=1376
+HDMI-A-0 DisplayPort-0 YPosition=28
+State=AAAA/wAAAAD9AAAAAAAAA7AAAAPVAAAABAAAAAQAAAAIAAAACPwAAAAA
 ToolBarsMovable=Disabled

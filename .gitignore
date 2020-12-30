@@ -3,4 +3,9 @@
 !.gitignore
 !i3/
 !vim/
-
+!bashrc
+!alacritty.yml
+!spotifyd/
+!spotify-tui/
+!polybar/
+!picom.config

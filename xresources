@@ -1,0 +1,35 @@
+#define MONITOR_0 "HDMI-A-0"
+#define MONITOR_1 "DisplayPort-0"
+
+!   si el archivo crece demasiado refactorizarlo
+!   #include '.Xresources.d/colors' por ejemplo
+
+!   window backgrounds
+*.color0: #292928
+*.color1: #131516
+!   text
+*.color2: #dddddd
+*.color3: #546666
+!   urgent & urg text
+*.color4: #de6f14
+*.color5: #000000
+!   main theme colors
+*.color6: #1276a7
+*.color7: #254467
+
+! terminal normal colors
+*.c_black:   #1d1f21
+*.c_red:     #F7281B
+*.c_green:   #35CD2B
+*.c_yellow:  #f0c674
+*.c_blue:    #81a2be
+*.c_magenta: #F868FC
+*.c_cyan:    #46DDEC
+*.c_white:   #c5c8c6
+
+
+*.font: "System San Francisco Display" 
+*.free_icons: "Font Awesome 5 Free"
+*.brand_icons: "Font Awesome 5 Brand"
+
+

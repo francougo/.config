@@ -6,7 +6,7 @@ disable_randr15 yes
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 set $alt Mod1
 set $mod Mod4
-exec_always .screenlayout/screenlayout1.sh
+exec_always screenlayout1.sh
 exec_always xrdb ~/.Xresources
 exec picom --config ./.config/picom.conf 
 

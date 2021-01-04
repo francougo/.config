@@ -254,6 +254,7 @@ mode "Media"{
         bindsym $Right exec "playerctl --player=spotify,spotifyd next"
         bindsym $Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
         bindsym $Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+        bindsym Right exec ~/bin/next_sink
         bindsym space exec "playerctl --player=spotify,spotifyd play-pause"
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -271,6 +272,7 @@ mode invisible
 }
 
 
-# packages needed 
+# packages needed (can be replaced by similar ones)
+#
 # xss-lock, nitrogen, dmenu, pactl, scrot, xrdb(also the .Xresources file)
-# polybar, xautolock, font awesome
+# polybar, xautolock, font awesome, picom

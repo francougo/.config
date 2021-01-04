@@ -12,7 +12,7 @@ export PATH=$PATH:~/bin
 alias ls='ls --color=auto'
 alias la='ls -la'
 
-PS1='\[\e[1;37m\][\[\e[1;31m\]\u\[\e[1;37m\]@\[\e[1;34m\]\h \W\[\e[1;37m\]]\$\[\e[m\] '
+PS1='\[\e[1;37m\][\j \[\e[1;31m\]\u\[\e[1;37m\]@\[\e[1;34m\]\h \W\[\e[1;37m\]]\$\[\e[m\] '
 # color reference:
 #   Foreground      Background
 #       

@@ -1,15 +1,14 @@
-# i3 config file
 #
-disable_randr15 yes
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+
+# Modifiers definitions
 set $alt Mod1
 set $mod Mod4
-exec_always screenlayout1.sh
-exec_always xrdb ~/.Xresources
-exec picom --config ./.config/picom.conf 
 
+# movement and color variable definitions
 set $left h
 set $down j
 set $up k
@@ -25,37 +24,48 @@ set_from_resource $main_color1  i3wm.color7 #000000
 
 set_from_resource $font i3wm.font 
 
-# is used in the bar {} block below.
+# font from xresources file
 font pango:$font 12 
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/bin/blur_lock.sh 
+
+# startup programs
 exec --no-startup-id nm-applet
-exec "xautolock -time 10 -locker ~/bin/blur_lock.sh -killtime 15 -killer 'systemctl suspend' -detectsleep"
+exec xautolock -time 10 -locker ~/bin/blur_lock.sh -killtime 15 -killer 'systemctl suspend' -detectsleep
+exec_always ~/bin/screenlayout1.sh
+exec_always xrdb ~/.Xresources
+exec picom --config ./.config/picom.conf 
 gaps inner 8
 
-bindsym $mod+Shift+x exec ~/bin/blur_lock.sh
 
-# Use pactl to adjust volume in PulseAudio. SOLVE THIS WHEN CHANGING TO POLYBAR
+# non default bindings
+bindsym $mod+Shift+x exec ~/bin/blur_lock.sh
+bindsym $mod+Shift+p exec systemctl --user restart spotifyd.service
+bindsym $mod+Return exec alacritty
+bindsym $mod+minus workspace $ws9; exec alacritty -e spt
+bindsym $mod+Shift+v workspace $ws9; exec alacritty -e cava
+
+
+# Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
+
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-# start a terminal
-bindsym $mod+Return exec alacritty
-bindsym $mod+minus workspace $ws9; exec alacritty -e spt
 
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
+
+# start dmenu 
 bindsym $mod+d exec dmenu_run -fn $font:size=18 -sb '$main_color0'
-# A more modern dmenu replacement is rofi:
+
 
 # change focus
 bindsym $mod$left focus left
@@ -63,11 +73,13 @@ bindsym $mod$down focus down
 bindsym $mod$up focus up
 bindsym $mod$right focus right
 
+
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+
 
 # move focused window
 bindsym $mod+$alt+$left move left
@@ -95,8 +107,7 @@ bindsym $mod+f fullscreen toggle
 
 
 # change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
+# removed stacked and tabbed bindings because i don't use them
 bindsym $mod+e layout toggle split
 
 
@@ -110,8 +121,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
+# Workspace names
 set $ws1 "1: "
 set $ws2 "2: "
 set $ws3 "3: "
@@ -169,6 +179,7 @@ assign [class="okular"] $ws4
 assign [class="Gimp"] $ws5
 assign [class="^Microsoft Teams - Preview"] $ws7
 assign [class="^discord"] $ws8
+
 # spotify does not set a class name on startup 
 for_window [class="^Spotify"] move to workspace $ws9
 
@@ -187,11 +198,11 @@ client.urgent               $urgent     $urgent     $text_urg   $urgent
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
 
 
 #   modes
 
+#   mode for exiting
 mode "exit: [l]ogout, [r]eboot, [p]ower off, [s]uspend" {
 
         bindsym l exec i3-msg exit
@@ -235,6 +246,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+#   Take screenshots 
 mode "Screenshot: [r]egion, [f]ull display, [c]urrent window" {
         bindsym r --release\
             mode "default"; exec "scrot -s ~/Pictures/Screenshots/"
@@ -249,6 +262,8 @@ mode "Screenshot: [r]egion, [f]ull display, [c]urrent window" {
 
 bindsym $mod+c mode "Screenshot: [r]egion, [f]ull display, [c]urrent window" 
  
+
+#   Control spotify and spotifyd player, sink volume and switch between sinks
 mode "Media"{
         bindsym $Left exec "playerctl --player=spotify,spotifyd previous"
         bindsym $Right exec "playerctl --player=spotify,spotifyd next"
@@ -264,7 +279,7 @@ mode "Media"{
 bindsym $mod+m mode "Media"
 
 
-# Start i3bar to display a workspace bar (plus the system information i3status # finds out, if available)
+# Bar command 
 bar {
         status_command polybar main
 

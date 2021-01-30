@@ -27,13 +27,12 @@ set_from_resource $font i3wm.font
 # font from xresources file
 font pango:$font 12 
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/bin/blur_lock.sh 
+# no longer needs xss-lock to lock screen after wake from suspend as
+# either xautolock or the exit mode suspend option run the lock script
 
 # startup programs
 exec --no-startup-id nm-applet
-exec xautolock -time 10 -locker ~/bin/blur_lock.sh -killtime 15 -killer 'systemctl suspend' -detectsleep
+exec xautolock -time 10 -locker ~/bin/blur_lock -killtime 15 -killer 'systemctl suspend' -detectsleep
 exec_always ~/bin/screenlayout1.sh
 exec_always xrdb ~/.Xresources
 exec picom --config ./.config/picom.conf 
@@ -41,11 +40,11 @@ gaps inner 8
 
 
 # non default bindings
-bindsym $mod+Shift+x exec ~/bin/blur_lock.sh
+bindsym $mod+Shift+x exec ~/bin/blur_lock
 bindsym $mod+Shift+p exec systemctl --user restart spotifyd.service
 bindsym $mod+Return exec alacritty
 bindsym $mod+minus workspace $ws9; exec alacritty -e spt
-bindsym $mod+Shift+v workspace $ws9; exec alacritty -e cava
+bindsym $mod+Shift+f workspace $ws2; exec alacritty -e vifm
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -175,7 +174,7 @@ bindsym $mod+$alt+p move container to workspace number $ws9
 # assign aplications to specific workspaces
 assign [class="^firefox"] $ws1
 assign [class="^Thunar"] $ws2
-assign [class="okular"] $ws4
+assign [class="Zathura"] $ws4
 assign [class="Gimp"] $ws5
 assign [class="^Microsoft Teams - Preview"] $ws7
 assign [class="^discord"] $ws8
@@ -210,6 +209,7 @@ mode "exit: [l]ogout, [r]eboot, [p]ower off, [s]uspend" {
         bindsym p exec systemctl poweroff
         bindsym s \
                 mode "default"; \
+                exec ~/bin/blur_lock;\
                 exec systemctl suspend
         bindsym Escape mode "default"
         bindsym Return mode "default"
@@ -270,6 +270,7 @@ mode "Media"{
         bindsym $Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
         bindsym $Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
         bindsym Right exec ~/bin/next_sink
+        bindsym v workspace $ws9; exec alacritty -e cava
         bindsym space exec "playerctl --player=spotify,spotifyd play-pause"
         bindsym Return mode "default"
         bindsym Escape mode "default"

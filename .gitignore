@@ -1,13 +1,11 @@
 
 *
 !.gitignore
-!i3/
 !vim/
 !bashrc
-!alacritty.yml
-!spotifyd/
-!spotify-tui/
-!polybar/
-!picom.config
+!picom.conf
 !xresources
-
+!xmonad
+!xmobar
+!zathura
+!vifm

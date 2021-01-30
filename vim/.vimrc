@@ -41,5 +41,7 @@ nnoremap <leader>sv :so ~/.vimrc<cr>
 
 noremap <leader>t :sh<cr>
 
+nnoremap <leader>u viw~
+
 noremap <leader>w <c-w><c-w>
 

@@ -5,7 +5,7 @@
 !bashrc
 !picom.conf
 !xresources
-!xmonad
-!xmobar
-!zathura
-!vifm
+!xmonad/
+!xmobar/
+!zathura/
+!vifm/

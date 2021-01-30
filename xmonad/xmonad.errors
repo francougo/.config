@@ -1,0 +1,7 @@
+
+xmonad.hs:150:16: warning: [-Wdeprecations]
+    In the use of ‘smartSpacing’ (imported from XMonad.Layout.Spacing):
+    Deprecated: "Use spacingRaw instead."
+    |
+150 |      tiled   = smartSpacing 3 $ Tall nmaster delta ratio
+    |                ^^^^^^^^^^^^

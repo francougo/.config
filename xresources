@@ -1,35 +1,77 @@
-#define MONITOR_0 "HDMI-A-0"
-#define MONITOR_1 "DisplayPort-0"
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
 
-!   si el archivo crece demasiado refactorizarlo
-!   #include '.Xresources.d/colors' por ejemplo
+*background:            S_base03
+*foreground:            S_base0
+*fadeColor:             S_base03
+*cursorColor:           S_base1
+*pointerColorBackground:S_base01
+*pointerColorForeground:S_base1
 
-!   window backgrounds
-*.color0: #292928
-*.color1: #131516
-!   text
-*.color2: #dddddd
-*.color3: #546666
-!   urgent & urg text
-*.color4: #de6f14
-*.color5: #000000
-!   main theme colors
-*.color6: #1276a7
-*.color7: #254467
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
 
-! terminal normal colors
-*.c_black:   #1d1f21
-*.c_red:     #F7281B
-*.c_green:   #35CD2B
-*.c_yellow:  #f0c674
-*.c_blue:    #81a2be
-*.c_magenta: #F868FC
-*.c_cyan:    #46DDEC
-*.c_white:   #c5c8c6
+!! black dark/light
+*color0:                S_base02
+*color8:                S_base03
 
+!! red dark/light
+*color1:                S_red
+*color9:                S_orange
 
-*.font: "System San Francisco Display" 
-*.free_icons: "Font Awesome 5 Free"
-*.brand_icons: "Font Awesome 5 Brand"
+!! green dark/light
+*color2:                S_green
+*color10:               S_base01
 
+!! yellow dark/light
+*color3:                S_yellow
+*color11:               S_base00
 
+!! blue dark/light
+*color4:                S_blue
+*color12:               S_base0
+
+!! magenta dark/light
+*color5:                S_magenta
+*color13:               S_violet
+
+!! cyan dark/light
+*color6:                S_cyan
+*color14:               S_base1
+
+!! white dark/light
+*color7:                S_base2
+*color15:               S_base3
+
+!! URxvt Appearance
+URxvt.font: xft:Source Code Pro for Powerline:style=Regular:size=14
+URxvt.boldFont: xft:Source Code Pro for Powerline:style=Bold:size=14
+URxvt.italicFont: xft:Source Code Pro for Powerline:style=Italic:size=14
+URxvt.boldItalicfont: xft:Source Code Pro for Powerline:style=Bold Italic:size=14
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 24
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt.depth: 24
+URxvt.iso14755: false
+URxvt.pointerBlank: True
+URxvt.pointerBlankDelay: 5
+!URxvt.scrollstyle: plain

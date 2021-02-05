@@ -2,10 +2,8 @@
 *
 !.gitignore
 !vim/
-!bashrc
 !picom.conf
 !xresources
-!xmonad/
-!xmobar/
 !zathura/
 !vifm/
+!zshrc

@@ -1,4 +1,3 @@
-
 *
 !.gitignore
 !vim/
@@ -7,3 +6,4 @@
 !zathura/
 !zshrc
 !bin/
+!test/

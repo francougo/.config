@@ -13,7 +13,11 @@ unsetopt autocd
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
-PS1='%B%0(#.%F{124}.%F{blue})%1~ %#%b%f '
+if [[ ${EUID} == 0 ]] ; then
+        PROMPT='%B%F{yellow}%n%f%F{white} [%f%b%2~%B%F{white}] %f%b%0(?.%F{blue}.%F{red})%B%# > %f%b'
+else
+        PROMPT='%B%F{cyan}%n%f%F{white} [%f%b%2~%B%F{white}] %f%b%0(?.%F{blue}.%F{red})%B%# > %f%b'
+fi
 # Old bashrc file content
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return

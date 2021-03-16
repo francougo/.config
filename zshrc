@@ -23,11 +23,12 @@ fi
 [[ $- != *i* ]] && return
 
 # Env Variables
-typeset -U PATH path
-path=("$HOME/bin" "$HOME/.cargo/bin" "$path[@]")
-export PATH
-export VISUAL=vim
-export EDITOR=$VISUAL
+#typeset -U PATH path
+#path=("$HOME/bin" "$HOME/.cargo/bin" "$path[@]")
+#export PATH
+#export VISUAL=vim
+#export EDITOR=$VISUAL
+#export _JAVA_AWT_WM_NONREPARENTING=1
 
 # aliases
 alias ls='ls --color=auto'

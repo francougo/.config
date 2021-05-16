@@ -1,10 +1,12 @@
 *
 !.gitignore
 !vim/
+vim/*
+!vim/vimrc
 !picom.conf
 !xresources
-!zathura/
+!zathura/*
 !zshrc
-!bin/
-!test/
+!bin/*
+!test/*
 !profile

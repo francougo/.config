@@ -33,5 +33,6 @@ fi
 # aliases
 alias ls='ls --color=auto'
 alias la='ls -la'
+alias bluc='bluetoothctl'
 
 
